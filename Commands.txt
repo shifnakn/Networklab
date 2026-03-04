@@ -1,0 +1,367 @@
+1. man ls
+
+  LS(1)                                                                  User Commands                                                                 LS(1)
+
+NAME
+       ls - list directory contents
+
+SYNOPSIS
+       ls [OPTION]... [FILE]...
+
+DESCRIPTION
+       List information about the FILEs (the current directory by default).  Sort entries alphabetically if none of -cftuvSUX nor --sort is specified.
+
+       Mandatory arguments to long options are mandatory for short options too.
+
+       -a, --all
+              do not ignore entries starting with .
+
+       -A, --almost-all
+              do not list implied . and ..
+
+       --author
+              with -l, print the author of each file
+
+       -b, --escape
+              print C-style escapes for nongraphic characters
+
+       --block-size=SIZE
+              with -l, scale sizes by SIZE when printing them; e.g., '--block-size=M'; see SIZE format below
+
+       -B, --ignore-backups
+              do not list implied entries ending with ~
+
+       -c     with  -lt: sort by, and show, ctime (time of last modification of file status information); with -l: show ctime and sort by name; otherwise:
+              sort by ctime, newest first
+
+       -C     list entries by columns
+
+       --color[=WHEN]
+              colorize the output; WHEN can be 'always' (default if omitted), 'auto', or 'never'; more info below
+
+       -d, --directory
+              list directories themselves, not their contents
+ Manual page ls(1) line 1 (press h for help or q to quit)
+
+
+
+2. ls
+  mca@mca09:~/Desktop/shifna/Netlab$ ls -l
+total 80
+-rw-rw-r-- 1 mca mca 20480 Feb 27 14:37 abcd.tar
+-rw-rw-r-- 1 mca mca 22526 Mar  2 11:37 code1.odt
+-rw-rw-r-- 1 mca mca 13095 Feb 27 15:12 code.odt
+-rw------- 1 mca mca  2635 Mar  2 11:34 mca
+-rw-r--r-- 1 mca mca   563 Mar  2 11:34 mca.pub
+drwxrwxr-x 3 mca mca  4096 Feb 27 14:48 net
+drwxrwxr-x 2 mca mca  4096 Feb 20 15:14 network
+drwxrwxr-x 3 mca mca  4096 Feb 23 15:23 work
+
+3.echo
+
+ mca@mca09:~/Desktop/shifna/Netlab$ echo "welcome"
+welcome
+
+4.read
+
+ mca@mca09:~/Desktop/shifna/Netlab$ read a b
+10 30
+mca@mca09:~/Desktop/shifna/Netlab$ echo $a
+10
+
+5.cat
+
+ mca@mca09:~/Desktop/shifna/network/net$ cat >file1.txt
+hloooo welcome my home
+mca@mca09:~/Desktop/shifna/network/net$ 
+
+6.more
+
+mca@mca09:~/Desktop/shifna/network/net$ more file1.txt
+hloooo welcome my home
+
+7.less
+
+mca@mca09:~/Desktop/shifna/network/net$ less file1.txt
+hloooo welcome my home
+~
+~
+~
+~
+~
+~
+~
+~
+~
+
+8.cd
+mca@mca09:~/Desktop/shifna/network/net$ cd network
+mca@mca09:~/Desktop/shifna/network/net/Netlab$ 
+9.mkdir
+
+mca@mca09:~/Desktop/shifna/network/net/Netlab$ mkdir abc
+
+10.cp
+
+ca@MCA10:~/Desktop/shifna/network/net$ cp file1.txt new1.txt
+
+11.find
+
+
+13.   mv new1.txt file1.txt
+   /Desktop/shifna/network/net$ mv work network
+14.   rm new.txt
+15.   -cvf abcd.tar net
+      net/
+     net/abcd.tar
+     net/file1.txt
+     net/network/
+--.  tar -xvf abcd.tar
+     net/
+     net/abcd.tar
+     net/file1.txt
+     net/network/
+--.   -l file1.txt
+      0 file1.txt
+16.   wc -w file1.txt
+     1 file1.txt
+17.   head -n file1.txt
+     head: invalid number of lines: ‘file1.txt’
+--.   -q file1.txt
+     hellooomca
+--.  head -v file1.txt
+      ==> file1.txt <==
+      hellooomca
+18.   tail -n file1.txt
+       tail: invalid number of lines: ‘file1.txt’
+--.  tail -f file1.txt
+       hellooo^Z 
+19.  cut -c 1-5 file1.txt
+       hello
+20.   paste -d file1.txt new.txt
+       hloo good morning
+21.   grep -n "good" new.txt
+       1:hloo good morning
+22.   expr 10 + 5
+        15
+  -.   expr 10 - 5
+         5
+23.   chmod o+r new.txt
+24.   sudo chown mca new.txt
+        [sudo] password for mca: 
+
+25.   ls > new.txt
+        ls -n new.txt
+         cat new.txt
+         abcd.tar
+         network
+         file1.txt
+          new.txt
+26.  ls |wc -l
+       4
+
+
+27.useradd
+   mca@mca09:~/Desktop/shifna/Netlab$ sudo useradd student1
+[sudo] password for mca: 
+mca@mca09:~/Desktop/shifna/Netlab$ useradd -m student1
+useradd: user 'student1' already exists
+mca@mca09:~/Desktop/shifna/Netlab$ useradd -u student1
+useradd: invalid user ID 'student1'
+mca@mca09:~/Desktop/shifna/Netlab$ useradd -g student1
+Usage: useradd [options] LOGIN
+       useradd -D
+       useradd -D [options]
+
+28.usermod
+
+mca@mca09:~/Desktop/shifna/Netlab$ usermod -l student1
+Usage: usermod [options] LOGIN
+
+Options:
+  -b, --badnames                allow bad names
+  -c, --comment COMMENT         new value of the GECOS field
+  -d, --home HOME_DIR           new home directory for the user account
+  -e, --expiredate EXPIRE_DATE  set account expiration date to EXPIRE_DATE
+  -f, --inactive INACTIVE       set password inactive after expiration
+                                to INACTIVE
+  -g, --gid GROUP               force use GROUP as new primary group
+  -G, --groups GROUPS           new list of supplementary GROUPS
+  -a, --append                  append the user to the supplemental GROUPS
+                                mentioned by the -G option without removing
+                                the user from other groups
+  -h, --help                    display this help message and exit
+  -l, --login NEW_LOGIN         new value of the login name
+  -L, --lock                    lock the user account
+  -m, --move-home               move contents of the home directory to the
+                                new location (use only with -d)
+  -o, --non-unique              allow using duplicate (non-unique) UID
+  -p, --password PASSWORD       use encrypted password for the new password
+  -R, --root CHROOT_DIR         directory to chroot into
+  -P, --prefix PREFIX_DIR       prefix directory where are located the /etc/* files
+  -s, --shell SHELL             new login shell for the user account
+  -u, --uid UID                 new UID for the user account
+  -U, --unlock                  unlock the user account
+  -v, --add-subuids FIRST-LAST  add range of subordinate uids
+  -V, --del-subuids FIRST-LAST  remove range of subordinate uids
+  -w, --add-subgids FIRST-LAST  add range of subordinate gids
+  -W, --del-subgids FIRST-LAST  remove range of subordinate gids
+  -Z, --selinux-user SEUSER     new SELinux user mapping for the user account
+   
+29.passwrd
+
+    mca@mca09:~/Desktop/shifna/Netlab$ passwd
+Changing password for mca.
+Current password: mca
+New password: 12345678
+Retype new password: 12345678
+passwd: password updated successfully
+
+30.userdel
+
+  mca@mca09:~/Desktop/shifna/Netlab$ sudo userdel student1
+
+31.def
+
+  mca@mca09:~/Desktop/shifna/Netlab$ df
+Filesystem     1K-blocks     Used Available Use% Mounted on
+udev             3950068        0   3950068   0% /dev
+tmpfs             800368     1788    798580   1% /run
+/dev/sda1      148899576 58011212  83251884  42% /
+tmpfs            4001832        0   4001832   0% /dev/shm
+tmpfs               5120        4      5116   1% /run/lock
+tmpfs            4001832        0   4001832   0% /sys/fs/cgroup
+/dev/loop0       1588224  1588224         0 100% /snap/android-studio/205
+/dev/loop1       1526784  1526784         0 100% /snap/android-studio/209
+/dev/loop2        200320   200320         0 100% /snap/arduino/85
+/dev/loop4         56832    56832         0 100% /snap/core18/2979
+/dev/loop6        344192   344192         0 100% /snap/code/221
+/dev/loop5         56832    56832         0 100% /snap/core18/2976
+/dev/loop9         65408    65408         0 100% /snap/core20/2686
+/dev/loop7         65408    65408         0 100% /snap/core20/2717
+/dev/loop8         75776    75776         0 100% /snap/core22/2216
+/dev/loop14          128      128         0 100% /snap/bare/5
+/dev/loop21       528640   528640         0 100% /snap/gnome-42-2204/226
+/dev/loop16        49280    49280         0 100% /snap/snapd/25935
+/dev/loop17        13312    13312         0 100% /snap/snap-store/1113
+/dev/loop15       223744   223744         0 100% /snap/gnome-3-34-1804/93
+/dev/loop20      1289472  1289472         0 100% /snap/pycharm-community/568
+/dev/loop12       223744   223744         0 100% /snap/gnome-3-34-1804/90
+/dev/loop22        52224    52224         0 100% /snap/snapd/25577
+/dev/loop19        93952    93952         0 100% /snap/gtk-common-themes/1535
+/dev/loop10      1291136  1291136         0 100% /snap/pycharm-community/580
+/dev/loop18       168832   168832         0 100% /snap/gnome-3-28-1804/198
+/dev/loop11       358144   358144         0 100% /snap/gnome-3-38-2004/140
+/dev/loop25       358144   358144         0 100% /snap/gnome-3-38-2004/143
+/dev/loop13       544128   544128         0 100% /snap/gnome-42-2204/247
+/dev/loop23        75776    75776         0 100% /snap/core22/2292
+/dev/loop24       330752   330752         0 100% /snap/wine-platform-6-stable/19
+/dev/loop26       355328   355328         0 100% /snap/wine-platform-runtime/408
+/dev/loop27        66688    66688         0 100% /snap/gtk-common-themes/1515
+/dev/loop28        12544    12544         0 100% /snap/snap-store/1216
+/dev/loop29       355072   355072         0 100% /snap/wine-platform-runtime/409
+tmpfs             800364       64    800300   1% /run/user/1000
+/dev/loop30       344192   344192         0 100% /snap/code/226
+
+
+
+32.ps
+
+  mca@mca09:~/Desktop/shifna/Netlab$ ps
+    PID TTY          TIME CMD
+   2937 pts/0    00:00:00 bash
+   3888 pts/0    00:00:00 man
+   3898 pts/0    00:00:00 pager
+   5748 pts/0    00:00:00 ps
+
+33.top
+  
+ mca@mca09:~/Desktop/shifna/Netlab$ top
+
+top - 11:31:30 up 40 min,  1 user,  load average: 0.26, 0.27, 0.23
+Tasks: 236 total,   1 running, 232 sleeping,   3 stopped,   0 zombie
+%Cpu(s):  4.4 us,  1.8 sy,  0.0 ni, 93.7 id,  0.0 wa,  0.0 hi,  0.1 si,  0.0 st
+MiB Mem :   7816.1 total,   2797.4 free,   1893.0 used,   3125.6 buff/cache
+MiB Swap:   2048.0 total,   2048.0 free,      0.0 used.   5262.7 avail Mem 
+
+    1733 mca       20   0  391916  71132  31140 S   9.0   0.9   0:50.06 orca                                                                                   
+   2930 mca       20   0  816720  52264  39456 S   7.3   0.7   0:15.87 gnome-terminal-                                                                        
+   1391 mca       20   0 4182476 237740  84228 S   3.0   3.0   0:36.04 gnome-shell                                                                            
+   1001 mca       20   0  321788  52644  26652 S   2.3   0.7   0:22.17 Xorg                                                                                   
+    985 mca        9 -11 2908564  20084  15548 S   1.3   0.3   0:43.23 pulseaudio                                                                             
+   1949 mca       20   0  581640   9492   6692 S   1.3   0.1   0:14.29 sd_espeak-ng                                                                           
+    109 root      20   0       0      0      0 I   0.7   0.0   0:03.86 kworker/3:1-events                                                                     
+   5839 mca       20   0   12004   3996   3204 R   0.7   0.0   0:00.25 top                                                                                    
+      1 root      20   0  170100  13456   8336 S   0.3   0.2   0:02.09 systemd                                                                                
+    590 message+  20   0    9844   6564   3964 S   0.3   0.1   0:01.40 dbus-daemon                                                                            
+    600 root      20   0  262676  19968  16920 S   0.3   0.2   0:00.53 NetworkManager                                                                         
+    989 mysql     20   0 2381436 397484  38320 S   0.3   5.0   0:11.42 mysqld                                                                                 
+   1610 mca       20   0  163004   7696   6812 S   0.3   0.1   0:04.55 at-spi2-registr                                                                        
+   5098 mca       20   0 2979704 323300 140128 S   0.3   4.0   0:25.33 Isolated Web Co                                                                        
+      2 root      20   0       0      0      0 S   0.0   0.0   0:00.00 kthreadd                                                                               
+      3 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_gp                                                                                 
+      4 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_par_gp                                                                             
+      5 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 slub_flushwq                                                                           
+      6 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 netns                                                                                  
+      8 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/0:0H-events_highpri                                                            
+     10 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 mm_percpu_wq
+     11 root      20   0       0      0      0 S   0.0   0.0   0:00.00 rcu_tasks_rude_                                                                        
+     12 root      20   0       0      0      0 S   0.0   0.0   0:00.00 rcu_tasks_trace                                                                        
+     13 root      20   0       0      0      0 S   0.0   0.0   0:00.07 ksoftirqd/0                                                                            
+     14 root      20   0       0      0      0 I   0.0   0.0   0:00.60 rcu_sched                                                                              
+     15 root      rt   0       0      0      0 S   0.0   0.0   0:00.01 migration/0                                                                            
+     16 root     -51   0       0      0      0 S   0.0   0.0   0:00.00 idle_inject/0                                                                          
+     18 root      20   0       0      0      0 S   0.0   0.0   0:00.00 cpuhp/0                                                                                
+     19 root      20   0       0      0      0 S   0.0   0.0   0:00.00 cpuhp/1                                                                                
+     20 root     -51   0       0      0      0 S   0.0   0.0   0:00.00 idle_inject/1                                                                          
+     21 root      rt   0       0      0      0 S   0.0   0.0   0:00.16 migration/1                                                                            
+     22 root      20   0       0      0      0 S   0.0   0.0   0:00.07 ksoftirqd/1                                                                            
+     24 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/1:0H-events_highpri                                                            
+34.ssh
+
+   mca@mca09:~/Desktop/shifna/Netlab$ ssh
+usage: ssh [-46AaCfGgKkMNnqsTtVvXxYy] [-B bind_interface]
+           [-b bind_address] [-c cipher_spec] [-D [bind_address:]port]
+           [-E log_file] [-e escape_char] [-F configfile] [-I pkcs11]
+           [-i identity_file] [-J [user@]host[:port]] [-L address]
+           [-l login_name] [-m mac_spec] [-O ctl_cmd] [-o option] [-p port]
+           [-Q query_option] [-R address] [-S ctl_path] [-W host:port]
+           [-w local_tun[:remote_tun]] destination [command]
+
+35.scp
+
+  mca@mca09:~/Desktop/shifna/Netlab$ scp
+usage: scp [-346BCpqrTv] [-c cipher] [-F ssh_config] [-i identity_file]
+            [-J destination] [-l limit] [-o ssh_option] [-P port]
+            [-S program] source ... target
+36.ssh-keygen
+
+ mca@mca09:~/Desktop/shifna/Netlab$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/mca/.ssh/id_rsa): mca
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in mca
+Your public key has been saved in mca.pub
+The key fingerprint is:
+SHA256:JEmms/BUN0segMUtgzvIOM35mOm8YpGjKTJghackjck mca@mca09
+The key's randomart image is:
++---[RSA 3072]----+
+|     =*o=        |
+|    o=+=.+       |
+|.Ooo+.oo+        |
+|*EB*oo o         |
+|o.==o.  S        |
+|.*+ .            |
+|++o              |
+|B.o              |
+|+o..             |
++----[SHA256]-----+
+
+37. ssh-copy-id
+
+   mca@mca09:~/Desktop/shifna/Netlab$ ssh-copy-id
+Usage: /usr/bin/ssh-copy-id [-h|-?|-f|-n] [-i [identity_file]] [-p port] [[-o <ssh -o options>] ...] [user@]hostname
+	-f: force mode -- copy keys without trying to check if they are already installed
+	-n: dry run    -- no keys are actually copied
+	-h|-?: print this help
