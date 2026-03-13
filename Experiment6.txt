@@ -1,0 +1,76 @@
+1 Starting Vim/Vi Editor
+2 Saving and Exiting
+mca@mca09:~/shifna/Netlab$ vi file.sh
+Linux is an open source operating system.
+Vi editor is used to edit files in Linux.
+:wq
+
+3 Viewing the File After Saving
+mca@mca09:~/shifna/Netlab$cat file.sh
+Linux is an open source operating system.
+Vi editor is used to edit files in Linux.
+
+4. Pattern Searching
+Linux is an open source operating system.
+Vi editor is used to edit files in Linux.
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+:/Linux
+
+5. Global Search and Replace
+Unix is an open source operating system.
+Vi editor is used to edit files in Unix.
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+:%s/Linux/Unix/g
+
+6.Emacs Editor (Terminal-Based Text Editor)
+mca@mca09:~/shifna/Netlab$ sudo snap install emacs
+[sudo] password for mca: 
+error: This revision of snap "emacs" was published using classic confinement
+       and thus may perform arbitrary system changes outside of the security
+       sandbox that snaps are usually confined to, which may put your system at
+       risk.
+
+Unix is an open source operating system.                                        
+Vi editor is used to edit files in Unix. 

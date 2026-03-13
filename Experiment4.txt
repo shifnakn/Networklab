@@ -1,0 +1,234 @@
+1.a) 
+Create a directory named lab1, move into it, create a file data.txt, write some content using echo, and display it using cat.
+(Commands: mkdir, cd, echo, cat)
+
+    	mca@mca09:~/shifna/Netlab$ mkdir lab1
+    	mca@mca09:~/shifna/Netlab$ cd lab1
+    	mca@mca09:~/shifna/Netlab/lab1$ echo "Linux lab expiriment" >data.txt
+    	mca@mca09:~/shifna/Netlab/lab1$ cat data.txt
+    	Linux lab expiriment
+
+	mca@mca09:~/shifna/Netlab/lab1$ tail -n 10 data.txt
+	ciyaana
+	ciyaan
+	ciyaa
+	ciya
+	ciy
+	ci
+	c
+	1
+	2
+	3
+
+b) Display the last 10 lines of a file and count the number of empty lines. (Commands: tail, grep '^$')
+
+	mca@mca09:~/shifna/Netlab/lab1$ tail -n 10 data.txt
+	ciyaana
+	ciyaan
+	ciyaa
+	ciya
+	ciy
+	ci
+	c
+	1
+	2
+	3
+	mca@mca09:~/shifna/Netlab/lab1$ grep '^$' data.txt | wc -1
+	wc: invalid option -- '1'
+	Try 'wc --help' for more information.
+	mca@mca09:~/shifna/Netlab/lab1$ grep '^$' data.txt | wc -l
+	0
+	
+c)Create a new user student1, set password, create a script file test.sh, change its ownership to student1, and grant execute permission only to the owner. (Commands: useradd, passwd, chown, chmod)
+
+	mca@mca09:~/shifna/Netlab/lab1$ sudo useradd student3
+	[sudo] password for mca: 
+	mca@mca09:~/shifna/Netlab/lab1$ sudo passwd student3
+	New password: 
+	Retype new password: 
+	passwd: password updated successfully
+	mca@mca09:~/shifna/Netlab/lab1$ sudo touch test.sh
+	mca@mca09:~/shifna/Netlab/lab1$ sudo chown student3 test.sh
+	mca@mca09:~/shifna/Netlab/lab1$ sudo chmod 700 test.sh
+	mca@mca09:~/shifna/Netlab/lab1$ ls -l test.sh
+	-rwx------ 1 student3 root 0 Mar  6 15:06 test.sh
+
+2.a) 
+Create a file students.txt, insert multiple lines using cat, and display lines containing the word "MCA". (Commands: cat, grep)
+
+	mca@mca09:~/shifna/Netlab/lab1$ cat > students.txt
+	shifna
+	ciyana
+	suhana
+	fathima
+	beem
+	mca@mca09:~/shifna/Netlab/lab1$ grep "a" students.txt
+	shifna
+	ciyana
+	suhana
+	fathima
+
+b) Copy students.txt to backup.txt, rename it to final.txt, and delete the original file. (Commands: cp, mv, rm)
+
+	mca@mca09:~/shifna/Netlab/lab1$ cp students.txt backup.txt
+	mca@mca09:~/shifna/Netlab/lab1$ mv backup.txt final.txt
+	mca@mca09:~/shifna/Netlab/lab1$ rm students.txt
+	mca@mca09:~/shifna/Netlab/lab1$ ls
+	data.txt  final.txt  test.sh
+	
+
+c)Generate an SSH key pair and copy it to a remote system for password-less login. (Commands: ssh-keygen, ssh-copy-id, ssh)
+
+	mca@mca09:~/shifna/Netlab/lab1$ ssh-keygen
+	Generating public/private rsa key pair.
+	Enter file in which to save the key (/home/mca/.ssh/id_rsa): 
+
+III.a) Count the number of words and lines in a file, then display the first 5 lines. (Commands: wc, head)
+
+	mca@mca09:~/shifna/Netlab/lab1$ wc data.txt
+	11 13 62 data.txt
+	mca@mca09:~/shifna/Netlab/lab1$ head -n 5 data.txt
+	Linux lab expiriment
+	ciyaana
+	ciyaan
+	ciyaa
+	ciya
+
+b) Create 3 files and compress them into archive.tar, then extract into a new directory. (Commands: touch, tar, mkdir)
+
+	mca@mca09:~/shifna/Netlab$ touch file1.txt file2.txt file3.txt
+	mca@mca09:~/shifna/Netlab$ tar -cvf archive.tar file1.txt file2.txt     file3.txt
+	file1.txt
+	file2.txt
+	file3.txt
+	mca@mca09:~/shifna/Netlab$ mkdir extracted_files
+	mca@mca09:~/shifna/Netlab$ tar -xvf archive.tar -C extracted_files
+	file1.txt
+	file2.txt
+	file3.txt
+	mca@mca09:~/shifna/Netlab$ ls extracted_files
+	file1.txt  file2.txt  file3.txt
+
+c)Search for lines that start with "Error" and do not contain the word "critical". (Commands: grep '^Error', grep -v)
+
+	ca@MCA03:~/shifna/Netlab$ grep '^It' data.txt | grep -v "is"
+It's also a day to celebrate culture with Go to an Art Museum Day and the inauguration of the Kartarpur Corridor in 2019
+
+
+
+
+
+IV.a) Create a file using echo, append additional content using redirection (>>), and display using less. (Commands: echo, >>, less)
+
+	mca@mca09:~/shifna/Netlab$ echo "Linux operating system">sample.txt
+	mca@mca09:~/shifna/Netlab$ echo "shell scripting basics">>sample.txt
+	mca@mca09:~/shifna/Netlab$ less sample.txt
+
+
+b) Grant read and write permission to the group for final.txt, and verify permissions.(Commands: chmod, ls -l)
+
+	mca@mca09:~/shifna/Netlab$ chmod g+rw ciya.txt
+	mca@mca09:~/shifna/Netlab$ ls -l ciya.txt
+	-rwxrwxr-x 1 mca mca 44 Feb 23 15:02 ciya.txt
+
+c)Display running processes of the current logged-in user in detailed format and show disk usage in human-readable format.
+(Commands: ps, df -h)
+
+	mca@mca09:~/shifna/Netlab$ ps -u $User -f
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+mca         4127  0.0  0.0   9844  4144 pts/1    Ss   14:23   0:00 bash
+mca         4275  0.0  0.0  11844  3548 pts/1    R+   14:32   0:00  \_ ps -u -f
+mca         4060  0.0  0.0   9844  4000 pts/0    Ss+  14:20   0:00 bash
+mca         1097  0.0  0.0 164028  6552 tty2     Ssl+ 14:08   0:00 /usr/lib/gdm
+mca         1099  3.0  0.6 324148 55340 tty2     Sl+  14:08   0:44  \_ /usr/lib
+mca         1175  0.0  0.1 188096 13696 tty2     Sl+  14:08   0:00  \_ /usr/lib
+
+V.a) 
+Find all .txt files in the current directory and show their details.
+(Commands: find, ls)
+	
+	mca@mca09:~/shifna/Netlab$ find . -name "*.txt"
+./Commands.txt
+./commands.txt
+./sample.txt
+./shifna/mca.txt
+./file2.txt
+./file1.txt
+./lab1/final.txt
+./lab1/data.txt
+./lab1/fil1.txt
+./lab1/fil2.txt
+./lab1/file3.txt
+./extracted_files/file2.txt
+./extracted_files/file1.txt
+./extracted_files/file3.txt
+./expiriment4.txt
+./newfile1.txt
+./ca.txt
+./file3.txt
+./new6.txt
+./ciya.txt
+mca@mca09:~/shifna/Netlab$ ls -l *.txt
+-rw-rw-r-- 1 mca mca    18 Mar  2 11:13 ca.txt
+-rwxrwxr-x 1 mca mca    44 Feb 23 15:02 ciya.txt
+-rw-rw-r-- 1 mca mca  3179 Mar  2 12:23 commands.txt
+-rw-rw-r-- 1 mca mca 16667 Mar  4 10:42 Commands.txt
+-rw-rw-r-- 1 mca mca  4877 Mar 13 14:34 expiriment4.txt
+-rw-rw-r-- 1 mca mca     0 Mar  9 11:56 file1.txt
+-rw-rw-r-- 1 mca mca     0 Mar  9 11:56 file2.txt
+-rw-rw-r-- 1 mca mca     0 Mar  9 11:56 file3.txt
+-rw-rw-r-- 1 mca mca    37 Mar  9 11:30 new6.txt
+-rw-rw-r-- 1 mca mca    20 Mar  2 12:06 newfile1.txt
+-rw-rw-r-- 1 mca mca    46 Mar 13 14:25 sample.txt
+
+b) Extract the first column from a file using cut, combine it with another file using paste, and save the output using redirection.(Commands: cut, paste, >)
+
+mca@mca09:~/shifna/Netlab$ cat>file1.txt
+suha
+ciya
+shifna 
+mca@mca09:~/shifna/Netlab$ cat >file2.txt
+mca
+mca
+bca
+mca@mca09:~/shifna/Netlab$ cut -d " " -f1 file1.txt
+suha
+ciya
+shifna
+
+c)Monitor system processes using top, exit the command properly, then list current directory contents with detailed permissions. (Commands: top, ls -l)
+
+mca@mca09:~/shifna/Netlab$ cut -d " " -f1 file1.txt | paste - file2.txt > result.txt
+mca@mca09:~/shifna/Netlab$ cat result.txt
+suha	mca
+ciya	mca
+shifna	bca
+
+
+
+
+
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
