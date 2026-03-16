@@ -1,0 +1,19 @@
+Experiment 8:  
+Write a shell script to check whether a given number is even or odd
+
+file2.sh
+#!/bin/bash
+echo "Enter a number:"
+read num
+if [ $((num % 2)) -eq 0 ]
+then
+    echo "$num is Even"
+else
+    echo "$num is Odd"
+fi
+
+mca@mca09:~/shifna/Netlab$ chmod +x file2.sh
+mca@mca09:~/shifna/Netlab$ ./file2.sh
+Enter a number:
+12
+12 is Even

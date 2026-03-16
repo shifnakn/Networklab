@@ -1,0 +1,20 @@
+Experiment 10: Shell Script to Check Leap Year
+    • divisible by 4 → leap year
+    • divisible by 100 → not leap year
+    • divisible by 400 → leap year
+    
+file2.sh  
+#!/bin/bash
+read -p "Enter a year: " year
+if (( year % 400 == 0 || (year % 4 == 0 && year % 100 != 0) ))
+then
+    echo "$year is a leap year"
+else
+    echo "$year is not a leap year"
+fi  
+ 
+ 
+mca@mca09:~/shifna/Netlab$  chmod +x file2.sh
+mca@mca09:~/shifna/Netlab$ ./file2.sh
+Enter a year: 2003
+2003 is not a leap year
