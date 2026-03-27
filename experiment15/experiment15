@@ -1,0 +1,23 @@
+Experiment 15:  
+Write a shell script to print the first n Fibonacci numbers.
+
+fibonacci.sh
+#!/bin/bash
+read -p "Enter number of terms: " n
+a=0
+b=1
+echo "Fibonacci Series:"
+for (( i=1; i<=n; i++ ))
+do
+    echo -n "$a "
+    temp=$((a + b))
+    a=$b
+    b=$temp
+done
+echo
+
+mca@MCA03:~/mca/Anjel/network$ chmod +x file2.sh
+mca@MCA03:~/mca/Anjel/network$ ./file2.sh
+Enter number of terms: 6
+Fibonacci Series:
+0 1 1 2 3 5 

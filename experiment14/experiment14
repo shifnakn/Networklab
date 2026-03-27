@@ -1,0 +1,17 @@
+Experiment 14: 
+Write a shell script to input a number and display its factorial.
+
+factorial.sh
+#!/bin/bash
+read -p "Enter a number: " n
+fact=1
+for (( i=1; i<=n; i++ ))
+do
+    fact=$((fact * i))
+done
+echo "Factorial of $n is $fact"
+
+mca@MCA03:~/mca/Anjel/network$ chmod +x file2.sh
+mca@MCA03:~/mca/Anjel/network$ ./file2.sh
+Enter a number: 4
+Factorial of 4 is 24

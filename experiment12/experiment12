@@ -1,0 +1,24 @@
+Experiment 12: 
+Write a shell script to input three numbers and display the largest number
+
+largst.sh
+#!/bin/bash
+read -p "Enter first number: " a
+read -p "Enter second number: " b
+read -p "Enter third number: " c
+if (( a >= b && a >= c ))
+then
+    echo "$a is the largest number"
+elif (( b >= a && b >= c ))
+then
+    echo "$b is the largest number"
+else
+    echo "$c is the largest number"
+fi
+
+mca@MCA03:~/mca/Anjel/network$ chmod +x file2.sh
+mca@MCA03:~/mca/Anjel/network$ ./file2.sh
+Enter first number: 12
+Enter second number: 23
+Enter third number: 34
+34 is the largest number
