@@ -1,0 +1,23 @@
+Experiment 17: 
+
+Write a shell program to Calculate the gross salary of the employee where his DA is 40%   of basic salary and HRA is 20% of basic salary. Get basic salary as user input. # salary.sh
+(Hint: Gross Salary = Basic Salary + DA + HRA  &   DA = 40% of Basic, HRA = 20% of Basic)
+
+salary.sh
+#!/bin/bash
+read -p "Enter basic salary: " basic
+da=$((basic*40/100))
+hra=$((basic*20/100))
+gross=$((basic+da+hra))
+echo "Basic Salary = $basic"
+echo "DA = $da"
+echo "HRA = $hra"
+echo "Gross Salary = $gross"
+
+mca@MCA03:~/mca/Anjel/Networks/Experiment_17$ chmod +x salary.sh
+mca@MCA03:~/mca/Anjel/Networks/Experiment_17$ ./salary.sh
+Enter basic salary: 23000
+Basic Salary = 23000
+DA = 9200
+HRA = 4600
+Gross Salary = 36800

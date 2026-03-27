@@ -1,0 +1,21 @@
+Experiment 16: 
+Write a shell Program to interchange two Numbers #Swap.sh
+
+swap.sh
+#!/bin/bash
+read -p "Enter a : " a
+read -p "Enter b :" b
+temp=$a
+a=$b
+b=$temp
+echo "After interchange:"
+echo "First number = $a"
+echo "Second number = $b"
+
+mca@MCA03:~/mca/Anjel/Networks/Experiment_16$ chmod +x swap.sh
+mca@MCA03:~/mca/Anjel/Networks/Experiment_16$ ./swap.sh
+Enter a : 12
+Enter b :23
+After interchange:
+First number = 23
+Second number = 12
